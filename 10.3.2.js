@@ -1,14 +1,15 @@
-let x = anyX;
-xs = typeof x === String;
-xn = typeof x === Number;
-xb = typeof x === Boolean;
-
-if (anyX === xs):
-     { console.log('строка')
-} else if (anyX === xn) {
-    console.log('Число')
-} else if (anyX === xb) {
-    console.log('логический тип')
-} else {
-    console.log('Тип x не определён')
+let x = ;
+switch (typeof x) {
+  case "string":
+    console.log("Значение - строка");
+    break;
+  case "number":
+    console.log('Значение - число');
+    break;
+  case "boolean":
+    console.log('Значение - лигический тип');
+    break;
+  default:
+    console.log('Тип значения не определен');
+    
 }
