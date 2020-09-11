@@ -5,8 +5,8 @@ let world = new Map([
   ['Paris', 'France']
 ]);
 for(let capital of world.keys()) {
-  console.log('Ключ'+'-'+ capital)
+  console.log('РљР»СЋС‡'+'-'+ capital)
 };
 for(let country of world.values()) {
-  console.log('Значение'+'-'+ country)
+  console.log('Р·РЅР°С‡РµРЅРёРµ'+'-'+ country)
 };
