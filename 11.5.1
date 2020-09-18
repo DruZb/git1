@@ -1,0 +1,9 @@
+function summ(numb1) {
+	return function argNumb(numb2) {
+  	return numb1 + numb2;
+  }
+}
+
+const result = summ(5);
+
+console.log(result(5));
