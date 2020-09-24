@@ -1,0 +1,19 @@
+const obj = {
+  key1: 'value1',
+  key2: 'value2',
+  key3: 'value3',
+  key4: 'value4',
+}
+
+let keyNum = 'key1'
+
+const foo = (keyNum, obj) => {
+  for(let key in obj) {
+    if (key === keyNum) {
+      console.log(key === keyNum)
+    }
+    else (console.log(false))
+  }
+};
+
+foo('key2', obj);
