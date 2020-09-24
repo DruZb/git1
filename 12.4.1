@@ -1,0 +1,28 @@
+function Powerbank (name) {
+  this.name = name
+};
+
+Device.prototype.getPower = function (power) {
+  console.log (`Power of device is ${power} W`)
+};
+ 
+function Device (name, power) {
+  this.name = name,
+  this.power = power,
+  this.turn = 'TurnOn'
+};
+
+Device.prototype = new Device ()
+
+const phone = new Device ('Iphone', '18');
+const notebook = new Device ('Asus', '70');
+ 
+
+//phone.getPower(18)
+//console.log(phone)
+
+notebook.getPower(70)
+console.log(notebook)
+
+
+
