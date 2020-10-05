@@ -24,5 +24,61 @@ const notebook = new Device ('Asus', '70');
 notebook.getPower(70)
 console.log(notebook)
 
+// Задание выполнено не верно, есть несколько ошибок:
+// 1. По заданию нужно было определить метод, который позволяет включать и выключать прибор из розетки. У вас определен только метод, который позволяет узнать мощность прибора
+// 2. По заданию нужно было создать делегирующую связь между родительской функцией-конструкторами (Device) и дочерними. У вас не определены дочерние конструкторы, объекты телефон и ноутбук являются просто экземплярами родительской функции, что не совсем правильно. Для этих объектов должна быть задана собственная функция-конструктор, при этом в качестве прототипа должен использоваться родительский объект (Device). Кроме того, каждый прибор должен иметь свои свойства или методы, присущие только им.
 
+// Пример правильного решения ниже:
 
+function ElectricalAppliance(name, power) {
+  this.name = name;
+  this.power = power;
+  this.isPlugged = false;
+}
+
+// метод, который определяет прибор как включенный в розетку
+ElectricalAppliance.prototype.plugIn = function () {
+  console.log(this.name + " is plugged!");
+  this.isPlugged = true;
+};
+
+// метод, который определяет прибор как выключеный из розетки
+ElectricalAppliance.prototype.unplug = function () {
+  console.log(this.name + " is unplugged!");
+  this.isPlugged = false;
+};
+
+// Прибор 1
+function Lamp(name, brand, power, bulbType) {
+  this.name = name;
+  this.brand = brand;
+  this.power = power;
+  this.bulbType = bulbType;
+  this.isPlugged = true;
+}
+
+Lamp.prototype = new ElectricalAppliance();
+
+// Прибор 2
+function Computer(name, brand, power, type, functionality) {
+  this.name = name;
+  this.brand = brand;
+  this.power = power;
+  this.type = type;
+  this.functionality = functionality;
+  this.isPlugged = false;
+}
+
+Computer.prototype = new ElectricalAppliance();
+
+// экземпляр лампы
+const tableLamp = new Lamp("Table lamp", "Xiaomi", 5, "LED");
+
+// экземпляр компьютера
+const homePC = new Computer("Table PC", "Intel", 120, "stationary", "for work");
+
+// отключить лампу из розетки
+tableLamp.unplug();
+
+// включить homePC в розетку
+homePC.plugIn();
