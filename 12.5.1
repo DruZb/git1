@@ -1,0 +1,37 @@
+class Parent {
+  constructor (Device) {
+    this.type = Device;
+    this.name = 'Powerbank';
+    this.turn = 'TurnOn';
+  }
+  getInfo () {
+  return 'This device is' + this.name;
+ }
+}
+
+class Phone extends Parent {
+  constructor(name, device) {
+    super(device);
+    this.ownName = 'Iphone';
+    this.power = '18W';
+  }
+  getInfo () {
+    console.log('This is ' + this.ownName + ' and it have ' + this.power)
+  }
+}
+
+class Notebook extends Parent {
+  constructor(name, device) {
+    super(device);
+    this.ownName = 'Asus';
+    this.power = '70W';
+  }
+  getInfo () {
+    console.log('This is ' + this.ownName + ' and it have ' + this.power)
+  }
+}
+
+const notebook = new Notebook ();
+notebook.getInfo ();
+//const phone = new Phone ();
+//phone.getInfo();
